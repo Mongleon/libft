@@ -6,7 +6,7 @@
 /*   By: varichar <varichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/04 13:44:40 by varichar          #+#    #+#             */
-/*   Updated: 2016/08/07 01:40:21 by varichar         ###   ########.fr       */
+/*   Updated: 2016/08/07 01:51:34 by varichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ int		ft_toupper(int c);
 int		ft_tolower(int c);
 int		ft_atoi(const char *nptr);
 void	*ft_memalloc(size_t size);
-
+void	ft_memdel(void **ap);
+char	*ft_strnew(size_t size);
+void	ft_strdel(char **as);
 
 #endif
