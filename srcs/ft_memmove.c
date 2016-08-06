@@ -6,7 +6,7 @@
 /*   By: varichar <varichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/06 15:15:26 by varichar          #+#    #+#             */
-/*   Updated: 2016/08/06 16:48:47 by varichar         ###   ########.fr       */
+/*   Updated: 2016/08/06 17:26:08 by varichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	unsigned int	i;
-	void			*tmp;
+	size_t	i;
+	void	*tmp;
 
 	i = 0;
 	tmp = (void*)malloc(n);

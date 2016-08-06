@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: varichar <varichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/06 16:50:35 by varichar          #+#    #+#             */
-/*   Updated: 2016/08/06 17:25:29 by varichar         ###   ########.fr       */
+/*   Created: 2016/08/06 17:45:57 by varichar          #+#    #+#             */
+/*   Updated: 2016/08/06 18:12:09 by varichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	memcmp(const void *s1, const void *s2, size_t n)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	size_t	i;
+	size_t	s1_end;
 
 	i = 0;
-	while (i < n)
+	while (dst[i] && i < size)
+		i++;
+	s1_end = i;
+	while (src[i - s1_end] && i < size - 1)
 	{
-		if (((unsigned char*)s1)[i] != ((unsigned char*)s2)[i])
-			return (((unsigned char*)s1)[i] - ((unsigned char*)s2)[i]);
+		dst[i] = src[i - s1_end];
 		i++;
 	}
-	return (0);
+	if (s1_end < size)
+		dst[i] = '\0';
+	return (s1_end + ft_strlen(src));
 }
