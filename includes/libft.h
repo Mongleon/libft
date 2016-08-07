@@ -6,7 +6,7 @@
 /*   By: varichar <varichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/04 13:44:40 by varichar          #+#    #+#             */
-/*   Updated: 2016/08/07 04:28:31 by varichar         ###   ########.fr       */
+/*   Updated: 2016/08/07 13:39:30 by varichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,7 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char const *s, int fd);
 void	ft_putendl_fd(char const *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+char	*ft_itoa(int n);
+char	**ft_strsplit(char const *s, char c);
 
 #endif

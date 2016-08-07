@@ -6,7 +6,7 @@
 /*   By: varichar <varichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/07 01:45:36 by varichar          #+#    #+#             */
-/*   Updated: 2016/08/07 01:47:31 by varichar         ###   ########.fr       */
+/*   Updated: 2016/08/07 19:43:36 by varichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,9 @@
 
 char	*ft_strnew(size_t size)
 {
-	return ((char*)ft_memalloc(size));
+	char *str;
+
+	str = (char*)ft_memalloc(size);
+	str[size - 1] = 0;
+	return (str);
 }
