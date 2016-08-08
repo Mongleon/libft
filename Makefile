@@ -6,7 +6,7 @@
 #*   By: varichar <varichar@student.42.fr>          +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2016/08/07 00:35:03 by varichar          #+#    #+#             *#
-#*   Updated: 2016/08/08 15:43:17 by varichar         ###   ########.fr       *#
+#*   Updated: 2016/08/08 16:35:15 by varichar         ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
@@ -15,8 +15,10 @@ HEADER = includes/
 
 BASE = $(shell ls base)
 STRING = $(shell ls string)
-SRCS = $(BASE) $(STRING)
-SRCS_DIR = $(addprefix base/, $(BASE)) $(addprefix string/, $(STRING))
+MEMORY = $(shell ls memory)
+SRCS = $(BASE) $(STRING) $(MEMORY)
+SRCS_DIR = $(addprefix base/, $(BASE)) $(addprefix string/, $(STRING))\
+			$(addprefix memory/, $(MEMORY))
 OBJ = ${SRCS:c=o}
 
 CFLAGS = -Wall -Werror -Wextra
