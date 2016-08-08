@@ -3,7 +3,7 @@ My libft, I prepare myself for the 42 cursus.
 
 Tested functions :
 
-# BASE
+## BASE
 - ft_itoa.c     
 - ft_atoi.c
 - ft_strsplit.c
@@ -12,7 +12,7 @@ Tested functions :
 - ft_bzero.c
 - ft_memset.c
 
-# STRING
+## STRING
 - ft_strjoin.c
 - ft_strnew.c
 - ft_strlen.c
