@@ -6,16 +6,18 @@
 #*   By: varichar <varichar@student.42.fr>          +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2016/08/07 00:35:03 by varichar          #+#    #+#             *#
-#*   Updated: 2016/08/07 02:01:39 by varichar         ###   ########.fr       *#
+#*   Updated: 2016/08/08 15:43:17 by varichar         ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
 NAME = libft.a
 HEADER = includes/
 
-SRC = $(shell find srcs/*)
-SRC_NODIR = $(notdir $(SRC))
-OBJ = ${SRC_NODIR:c=o}
+BASE = $(shell ls base)
+STRING = $(shell ls string)
+SRCS = $(BASE) $(STRING)
+SRCS_DIR = $(addprefix base/, $(BASE)) $(addprefix string/, $(STRING))
+OBJ = ${SRCS:c=o}
 
 CFLAGS = -Wall -Werror -Wextra
 CC = gcc
@@ -27,7 +29,7 @@ NC=\033[0m
 all: $(NAME)
 
 $(NAME):
-	@$(CC) -c $(CFLAGS) -I$(HEADER) $(SRC)
+	@$(CC) -c $(CFLAGS) -I$(HEADER) $(SRCS_DIR)
 	@echo -e "$(GREEN)[✓]$(NC) Objects compiled"
 	@ar rc $(NAME) $(OBJ)
 	@echo -e "$(GREEN)[✓]$(NC) Library $(NAME) built"
