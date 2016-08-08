@@ -11,6 +11,8 @@ My libft, I prepare myself for the 42 cursus.
 - ft_memalloc.c
 - ft_bzero.c
 - ft_memset.c
+- ft_memcpy.c
+- ft_memccpy.c
 
 ##### STRING
 - ft_strjoin.c
