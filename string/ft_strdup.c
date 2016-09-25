@@ -6,7 +6,7 @@
 /*   By: varichar <varichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/06 17:08:11 by varichar          #+#    #+#             */
-/*   Updated: 2016/08/06 17:12:50 by varichar         ###   ########.fr       */
+/*   Updated: 2016/09/25 21:30:53 by varichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,12 @@ char	*ft_strdup(const char *s)
 	char	*dest;
 
 	i = 0;
-	dest = (char*)malloc(sizeof(char) * ft_strlen(s));
+	dest = (char*)malloc(sizeof(char) * ft_strlen(s) + 1);
 	while (s[i] != 0)
 	{
 		dest[i] = s[i];
 		i++;
 	}
+	dest[i] = 0;
 	return (dest);
 }

@@ -6,7 +6,7 @@
 /*   By: varichar <varichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/06 18:18:16 by varichar          #+#    #+#             */
-/*   Updated: 2016/08/08 18:26:07 by varichar         ###   ########.fr       */
+/*   Updated: 2016/09/25 21:26:18 by varichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strrchr(const char *s, int c)
 	s_end = ft_strlen(s);
 	while (s_end > 0)
 	{
-		if (s[s_end - 1] == c)
+		if (s[s_end] == c)
 			return (&((char*)s)[s_end - 1]);
 		s_end--;
 	}
