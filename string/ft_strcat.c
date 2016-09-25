@@ -6,7 +6,7 @@
 /*   By: varichar <varichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/06 17:32:43 by varichar          #+#    #+#             */
-/*   Updated: 2016/08/07 20:05:14 by varichar         ###   ########.fr       */
+/*   Updated: 2016/09/25 21:19:24 by varichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strcat(char *dest, const char *src)
 	size_t	i;
 
 	i = 0;
-	dest_end = ft_strlen(dest) - 1;
+	dest_end = ft_strlen(dest);
 	while (src[i] != 0)
 	{
 		dest[dest_end + i] = src[i];

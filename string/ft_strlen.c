@@ -6,7 +6,7 @@
 /*   By: varichar <varichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/06 15:11:13 by varichar          #+#    #+#             */
-/*   Updated: 2016/08/06 17:26:44 by varichar         ###   ########.fr       */
+/*   Updated: 2016/09/25 21:18:36 by varichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ size_t	ft_strlen(const char *s)
 {
 	size_t	i;
 
-	i = 0;
-	while (s[i++] != 0)
+	i = -1;
+	while (s[++i] != 0)
 		;
 	return (i);
 }
