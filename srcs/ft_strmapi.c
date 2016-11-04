@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: varichar <varichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/06 18:18:16 by varichar          #+#    #+#             */
-/*   Updated: 2016/09/25 21:26:18 by varichar         ###   ########.fr       */
+/*   Created: 2016/08/07 02:46:24 by varichar          #+#    #+#             */
+/*   Updated: 2016/11/04 12:38:42 by varichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	size_t	s_end;
+	char	*dest;
+	size_t	i;
 
-	s_end = ft_strlen(s);
-	while (s_end > 0)
+	if((dest = ft_strnew(ft_strlen(s))))
 	{
-		if (s[s_end] == c)
-			return (&((char*)s)[s_end - 1]);
-		s_end--;
+		i = 0;
+		while (s[i])
+		{
+			dest[i] = f(i, s[i]);
+			i++;
+		}
 	}
-	return (NULL);
+	return (dest);
 }

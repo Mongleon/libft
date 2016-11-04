@@ -6,13 +6,13 @@
 /*   By: varichar <varichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/06 19:32:51 by varichar          #+#    #+#             */
-/*   Updated: 2016/08/06 19:36:07 by varichar         ###   ########.fr       */
+/*   Updated: 2016/11/03 15:00:08 by varichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strlen_nb(char *str, int flag)
+static int		ft_strlen_nb(char *str, int flag)
 {
 	int i;
 
@@ -26,7 +26,7 @@ int		ft_strlen_nb(char *str, int flag)
 	return (i);
 }
 
-int		ft_pow(int nb, int power)
+static int		ft_pow(int nb, int power)
 {
 	if (power == 0)
 		return (1);
@@ -35,7 +35,7 @@ int		ft_pow(int nb, int power)
 	return (0);
 }
 
-int		ft_atoi_rec(char *str, int flag)
+static int		ft_atoi_rec(char *str, int flag)
 {
 	if (((*str < 48 || *str > 57) && *str != 32 && *str != 45 && *str != 43 && \
 			(*str < 9 || *str > 13)) || (flag == 1 && (*str < 48 || *str > 57)))
@@ -46,12 +46,15 @@ int		ft_atoi_rec(char *str, int flag)
 		return (-1 * ft_atoi_rec(str + 1, 1));
 	if (*str == '+')
 		return (ft_atoi_rec(str + 1, 1));
-	if (*str > 47 && *str < 58 )
-		return ((*str - 48) * ft_pow(10, ft_strlen_nb(str, 1) - 1) + ft_atoi_rec(str + 1, 1));
+	if (*str > 47 && *str < 58)
+	{
+		return ((*str - 48) * ft_pow(10, ft_strlen_nb(str, 1) - 1) +\
+				ft_atoi_rec(str + 1, 1));
+	}
 	return (ft_atoi_rec(str + 1, 0));
 }
 
-int		ft_atoi(const char *str)
+int				ft_atoi(const char *str)
 {
 	char str1[ft_strlen_nb((char *)str, 0)];
 

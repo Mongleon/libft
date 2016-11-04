@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: varichar <varichar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: varichar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/07 03:38:44 by varichar          #+#    #+#             */
-/*   Updated: 2016/08/07 03:41:55 by varichar         ###   ########.fr       */
+/*   Created: 2016/11/03 15:33:47 by varichar          #+#    #+#             */
+/*   Updated: 2016/11/04 09:29:47 by varichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
-	char *dest;
+	t_list	**todel;
+	t_list	*buf;
 
-	dest = ft_strnew(ft_strlen(s1) + ft_strlen(s2));
-	ft_strcpy(dest, s1);
-	ft_strcat(dest, s2);
-	return (dest);
+	todel = alst;
+	while (*alst)
+	{
+		buf = (*alst)->next;
+		ft_lstdelone(alst, del);
+		*alst = buf;
+	}
+	alst = NULL;
 }

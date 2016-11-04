@@ -6,13 +6,13 @@
 /*   By: varichar <varichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/07 20:46:43 by varichar          #+#    #+#             */
-/*   Updated: 2016/08/07 22:01:54 by varichar         ###   ########.fr       */
+/*   Updated: 2016/11/04 09:52:22 by varichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_nbwords(char const *s, char c)
+static size_t	ft_nbwords(char const *s, char c)
 {
 	size_t	nbwords;
 	size_t	i;
@@ -35,7 +35,7 @@ size_t	ft_nbwords(char const *s, char c)
 	return (nbwords);
 }
 
-char *ft_getword(char const *s, char c, size_t i)
+static char		*ft_getword(char const *s, char c, size_t i)
 {
 	size_t	j;
 	char	*word;
@@ -45,18 +45,21 @@ char *ft_getword(char const *s, char c, size_t i)
 		i++;
 	while (s[i + j] != c)
 		j++;
-	word = (char*)malloc(sizeof(char) * (j + 1));
-	j = 0;
-	while (s[i + j] != c)
+	if ((word = (char*)malloc(sizeof(char) * (j + 1))))
 	{
-		word[j] = s[i + j];
-		j++;
+		j = 0;
+		while (s[i + j] != c)
+		{
+			word[j] = s[i + j];
+			j++;
+		}
+		word[j] = 0;
+		return (word);
 	}
-	word[j] = 0;
-	return (word);
+	return (NULL);
 }
 
-char	**ft_strsplit(char const *s, char c)
+char			**ft_strsplit(char const *s, char c)
 {
 	char	**splitw;
 	size_t	i;
@@ -66,15 +69,19 @@ char	**ft_strsplit(char const *s, char c)
 	i = 0;
 	index = 0;
 	size = ft_nbwords(s, c);
-	splitw = (char**)malloc(sizeof(char*) * size);
-	while (index < size)
+	if ((splitw = (char**)malloc(sizeof(char*) * size)))
 	{
-		while (s[i] == c)
-			i++;
-		splitw[index] = ft_getword(s, c, i);
-		index++;
-		while (s[i] != c)
-			i++;
+		while (index < size)
+		{
+			while (s[i] == c)
+				i++;
+			splitw[index] = ft_getword(s, c, i);
+			index++;
+			while (s[i] != c)
+				i++;
+		}
+		splitw[index] = NULL;
+		return (splitw);
 	}
-	return (splitw);
+	return (NULL);
 }

@@ -13,12 +13,8 @@
 NAME = libft.a
 HEADER = includes/
 
-BASE = $(shell ls base)
-STRING = $(shell ls string)
-MEMORY = $(shell ls memory)
-SRCS = $(BASE) $(STRING) $(MEMORY)
-SRCS_DIR = $(addprefix base/, $(BASE)) $(addprefix string/, $(STRING))\
-			$(addprefix memory/, $(MEMORY))
+SRCS = $(shell ls srcs)
+SRCS_DIR = $(addprefix srcs/, $(SRCS))
 OBJ = ${SRCS:c=o}
 
 CFLAGS = -Wall -Werror -Wextra
@@ -28,22 +24,24 @@ RED=\033[1;31m
 GREEN=\033[1;32m
 NC=\033[0m
 
+
 all: $(NAME)
 
 $(NAME):
 	@$(CC) -c $(CFLAGS) -I$(HEADER) $(SRCS_DIR)
-	@echo -e "$(GREEN)[✓]$(NC) Objects compiled"
+	@echo "$(GREEN)[✓]$(NC) Objects compiled"
 	@ar rc $(NAME) $(OBJ)
-	@echo -e "$(GREEN)[✓]$(NC) Library $(NAME) built"
+	@echo "$(GREEN)[✓]$(NC) Library $(NAME) built"
 	@ranlib $(NAME)
-	@echo -e "$(GREEN)[✓]$(NC) Library $(NAME) indexed"
+	@echo "$(GREEN)[✓]$(NC) Library $(NAME) indexed"
 
+.PHONY: clean
 clean:
 	@rm -Rf $(OBJ)
-	@echo -e "$(RED)[-]$(NC) Objects cleaned"
+	@echo "$(RED)[-]$(NC) Objects cleaned"
 
 fclean: clean
 	@rm -Rf $(NAME)
-	@echo -e "$(RED)[-]$(NC) Library $(NAME) cleaned"
+	@echo "$(RED)[-]$(NC) Library $(NAME) cleaned"
 
 re: fclean all
