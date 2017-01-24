@@ -1,19 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_wstrlen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: varichar <varichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/07 04:18:45 by varichar          #+#    #+#             */
-/*   Updated: 2016/11/05 14:45:33 by varichar         ###   ########.fr       */
+/*   Created: 2017/01/01 11:58:32 by varichar          #+#    #+#             */
+/*   Updated: 2017/01/19 14:30:23 by varichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr(char const *s)
+int	ft_wstrlen(wchar_t *str)
 {
-	if (s)
-		write(1, s, ft_strlen(s));
+	int len;
+	int	nb;
+
+	len = -1;
+	nb = 0;
+	if (str)
+		while (str[++len])
+		{
+			if (str[len] <= 0x7F)
+				nb += 1;
+			else if (str[len] <= 0x7FF)
+				nb += 2;
+			else if (str[len] <= 0xFFFF)
+				nb += 3;
+			else if (str[len] <= 0x10FFFF)
+				nb += 4;
+		}
+	return (nb);
 }

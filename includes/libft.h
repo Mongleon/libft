@@ -6,7 +6,7 @@
 /*   By: varichar <varichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/04 13:44:40 by varichar          #+#    #+#             */
-/*   Updated: 2016/11/05 11:58:10 by varichar         ###   ########.fr       */
+/*   Updated: 2017/01/19 16:30:28 by varichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define LIBFT_H
 # include <stdlib.h>
 # include <unistd.h>
+# include "printf.h"
+# include <wchar.h>
 
 typedef struct	s_list
 {
@@ -66,9 +68,13 @@ char			*ft_strsub(char const *s, unsigned int start, size_t len);
 char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strtrim(char const *s);
 void			ft_putchar(int c);
-void			ft_putstr(char const *s);
+int				ft_putstr(char const *s);
+int				ft_putnstr(char const *str, int c);
 void			ft_putendl(char const *s);
 void			ft_putnbr(int n);
+int				ft_putnbr_base(long long n, int base, int prec, int maj);
+int				ft_putunbr_base(unsigned long long n, int base, int prec,\
+		int maj);
 void			ft_putchar_fd(char c, int fd);
 void			ft_putstr_fd(char const *s, int fd);
 void			ft_putendl_fd(char const *s, int fd);
@@ -81,5 +87,14 @@ void			ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void			ft_lstadd(t_list **alst, t_list *new);
 void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+int				ft_printf(const char *restrict format, ...);
+int				ft_wstrlen(wchar_t *str);
+void			ft_putwstr(wchar_t *str);
+int				ft_putwchar(wchar_t c);
+int				ft_putwstr_nb(wchar_t *str, int nb);
+int				ft_putstr_nb(char *str, int nb);
+int				ft_putnchar(char c, int nb);
+int				ft_nbrlen_base(long long n, int base, int prec);
+int				ft_wcharlen(wchar_t c);
 
 #endif

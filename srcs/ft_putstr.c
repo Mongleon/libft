@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: varichar <varichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/07 04:21:25 by varichar          #+#    #+#             */
-/*   Updated: 2016/11/04 09:35:29 by varichar         ###   ########.fr       */
+/*   Created: 2016/08/07 04:18:45 by varichar          #+#    #+#             */
+/*   Updated: 2017/01/05 09:52:18 by varichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-void	ft_putnbr(int n)
+int	ft_putstr(char const *s)
 {
-	if (n < 0 && (n = -n) && n > -2147483648)
-		ft_putchar('-');
-	if ((n / 10) > 0)
-		ft_putnbr(n / 10);
-	(n == -2147483648) ? ft_putstr("-2147483648") : ft_putchar(n % 10 + 48);
+	int len;
+
+	len = ft_strlen(s);
+	if (s)
+		write(1, s, len);
+	return (len);
 }
