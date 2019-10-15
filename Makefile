@@ -6,7 +6,7 @@
 #    By: varichar <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/22 13:41:20 by varichar          #+#    #+#              #
-#    Updated: 2017/01/24 08:38:27 by varichar         ###   ########.fr        #
+#    Updated: 2019/10/15 15:35:12 by varichar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,12 +29,12 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@echo "$(GREEN)[✓]$(NC) Objects of $(NAME) compiled"
-	@ar rc $(NAME) $(OBJ)
-	@ranlib $(NAME)
+	ar rc $(NAME) $(OBJ)
+	ranlib $(NAME)
 	@echo "$(GREEN)[✓]$(NC) library $(NAME) built"
 
 %.o: %.c
-	@$(CC) -c $< -o $@ -I$(HEADER) $(CFLAGS)
+	$(CC) -c $< -o $@ -I$(HEADER) $(CFLAGS)
 
 clean:
 	@rm -Rf $(OBJ)
